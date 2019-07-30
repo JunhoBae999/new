@@ -1,20 +1,31 @@
 {% extends 'base.html' %}
 
 {% block contents %}
-<body>           
-    {% for blog in posts %}
-    <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{blog.title}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{blog.date}}</h6>
-              <p class="card-text">{{blog.summary}}</p>
-              <a href='{%url "detail" blog.id%}' class="card-link">더보기</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
+<body>
+    <main role="main">
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+          <div class="container">
+            <h1 class="display-3">Hello! This is Junho's Blog</h1>
           </div>
-          <br>
+        </div>
+
+    {% for blog in posts %}
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2>{{blog.title}}</h2>
+            <p><h6 class="card-subtitle mb-2 text-muted">{{blog.date}}</h6></p>
+            <p><h6 class="card-subtitle mb-2 text-muted">{{blog.summary}}</h6></p>
+            <p><a class="btn btn-secondary" href='{%url "detail" blog.id%}' role="button">View details &raquo;</a></p>
+          </div>
+        </div>
+      </div>
     {%endfor%}
-</body>
+
+</main>
+
 {#First Previous 3 of 4 Next Last#}
 <div class = 'container'>
 {% if posts.has_previous%}

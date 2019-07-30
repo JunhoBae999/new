@@ -9,5 +9,5 @@ class Blog(models.Model) :
         return self.title
 
     def summary(self):
-        return self.writer[:100]
+        return self.body[:100]
 
